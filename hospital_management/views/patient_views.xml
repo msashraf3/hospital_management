@@ -54,5 +54,5 @@
 
     <!-- Menu item -->
     <menuitem id="menu_hospital_patient" name="Patients" parent="menu_hospital_root"
-        action="hospital_patient_action" sequence="20"/>
+        action="hospital_patient_action" sequence="20" />
 </odoo>
