@@ -1,0 +1,47 @@
+<odoo>
+    <!-- List (Tree) View -->
+    <record id="hospital_patient_tree_view" model="ir.ui.view">
+        <field name="name">hospital.patient.tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <list string="Patients">
+                <field name="name" />
+                <field name="age" />
+                <field name="gender" />
+                <field name="doctor_id" />
+                <field name="phone" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="hospital_patient_view_form" model="ir.ui.view">
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="age" />
+                        <field name="gender" />
+                        <field name="doctor_id" />
+                        <field name="phone" />
+                        <field name="medical_history" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="hospital_patient_action" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu item (sibling to Doctors, under the same root menu) -->
+    <menuitem id="menu_hospital_patient" name="Patients" parent="menu_hospital_root"
+        action="hospital_patient_action" sequence="20"/>
+</odoo>

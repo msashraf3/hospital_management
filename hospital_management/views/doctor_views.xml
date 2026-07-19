@@ -43,10 +43,7 @@
     </record>
 
     <!-- Menu -->
-    <menuitem id="hospital_menu_root" name="Hospital Management">
-        <menuitem id="hospital_doctor_menu" name="Doctors">
-            <menuitem id="hospital_doctor_menu_action" action="hospital_doctor_action" />
-        </menuitem>
-    </menuitem>
+    <menuitem id="menu_hospital_root" name="Hospital Management" />
+    <menuitem id="menu_hospital_doctor" name="Doctors" parent="menu_hospital_root" action="hospital_doctor_action" sequence="10"/>
 
 </odoo>
