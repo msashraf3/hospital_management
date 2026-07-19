@@ -10,7 +10,6 @@
                 <field name="specialization" />
                 <field name="phone" />
                 <field name="department" />
-                <field name="appointment_ids" />
             </list>
         </field>
     </record>
@@ -32,6 +31,17 @@
                         <field name="phone" />
                         <field name="email" />
                     </group>
+                    <notebook>
+                        <page string="Patient Appointments">
+                            <field name="appointment_ids">
+                                <list>
+                                    <field name="patient_id" />
+                                    <field name="appointment_date" />
+                                    <field name="status" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -46,6 +56,7 @@
 
     <!-- Menu -->
     <menuitem id="menu_hospital_root" name="Hospital Management" />
-    <menuitem id="menu_hospital_doctor" name="Doctors" parent="menu_hospital_root" action="hospital_doctor_action" sequence="10"/>
+    <menuitem id="menu_hospital_doctor" name="Doctors" parent="menu_hospital_root"
+        action="hospital_doctor_action" sequence="10" />
 
 </odoo>

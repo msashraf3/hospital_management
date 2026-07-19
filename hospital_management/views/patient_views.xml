@@ -10,7 +10,6 @@
                 <field name="gender" />
                 <field name="doctor_id" />
                 <field name="phone" />
-                <field name="appointment_ids" />
             </list>
         </field>
     </record>
@@ -30,6 +29,17 @@
                         <field name="phone" />
                         <field name="medical_history" />
                     </group>
+                    <notebook>
+                        <page string="Doctor Appointments">
+                            <field name="appointment_ids">
+                                <list>
+                                    <field name="doctor_id" />
+                                    <field name="appointment_date" />
+                                    <field name="status" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
