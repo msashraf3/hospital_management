@@ -8,11 +8,11 @@ Learning project: building a real Odoo module step-by-step while learning core O
 ## ✅ Progress
 - [x] Module scaffold created
 - [ ] Patient model
-- [ ] Doctor model
+- [x] Doctor model
 - [ ] Appointment model
-- [ ] Views (list/form)
-- [ ] Security & access rights
-- [ ] Menus
+- [x] Views (list/form)
+- [x] Security & access rights
+- [x] Menus
 
 ## 🛠 Tech
 - Odoo 19 (source install)
