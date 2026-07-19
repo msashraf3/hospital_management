@@ -7,7 +7,7 @@ Learning project: building a real Odoo module step-by-step while learning core O
 
 ## ✅ Progress
 - [x] Module scaffold created
-- [ ] Patient model
+- [x] Patient model
 - [x] Doctor model
 - [ ] Appointment model
 - [x] Views (list/form)

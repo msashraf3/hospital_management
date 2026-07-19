@@ -1,0 +1,49 @@
+<odoo>
+
+    <!-- list view -->
+    <record id="hospital_appointment_list_view" model="ir.ui.view">
+        <field name="name">hospital.appointment.tree</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <list string="Appointment">
+                <field name="patient_id" />
+                <field name="doctor_id" />
+                <field name="severity" />
+                <field name="status" />
+            </list>
+        </field>
+    </record>
+
+    <!-- form view -->
+    <record id="hospital_appointment_form_view" model="ir.ui.view">
+        <field name="name">hospital.appointment.form</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+                <sheet>
+                    <group>
+                        <field name="patient_id" />
+                        <field name="doctor_id" />
+                        <field name="appointment_date" />
+                        <field name="reason" />
+                        <field name="severity" />
+                        <field name="is_contagious" />
+                        <field name="status" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action -->
+    <record id="hospital_appointment_action" model="ir.actions.act_window">
+        <field name="name">Appointment</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- menu -->
+    <menuitem id="menu_hospital_appointment" name="Appointment" parent="menu_hospital_root"
+        action="hospital_appointment_action" />
+
+</odoo>

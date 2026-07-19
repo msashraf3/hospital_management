@@ -8,6 +8,7 @@
             <list string="Doctor">
                 <field name="name" />
                 <field name="specialization" />
+                <field name="phone" />
                 <field name="department" />
             </list>
         </field>
