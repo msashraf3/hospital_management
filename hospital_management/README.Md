@@ -31,7 +31,7 @@ Learning project: building a real Odoo module step-by-step while learning core O
 ## 📸 Screenshots
 
 **Doctor List and Form View**
-![Doctor List View](screenshots/doctor_list.png)
+![Doctor List View](screenshots/doctors_list.png)
 ![Doctor form View](screenshots/doctor_form_view.png)
 
 **Patient Form with Linked Appointments and list view**
