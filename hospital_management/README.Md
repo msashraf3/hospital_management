@@ -7,15 +7,37 @@ Learning project: building a real Odoo module step-by-step while learning core O
 
 ## ✅ Progress
 - [x] Module scaffold created
-- [x] Patient model
 - [x] Doctor model
-- [ ] Appointment model
-- [x] Views (list/form)
+- [x] Patient model
+- [x] Appointment model (linked to Patient + Doctor)
+- [x] Many2one relationships (Patient/Appointment → Doctor)
+- [x] One2many reverse relationships (Doctor/Patient → Appointments)
+- [x] Views (list/form) for all models
 - [x] Security & access rights
 - [x] Menus
+- [ ] Business logic (status workflow buttons, computed fields, constraints)
+- [ ] Related fields
+- [ ] Appointment scheduling rules (doctor availability, slot limits)
+
+## 🧩 Models
+- **hospital.doctor** — name, specialization, department, contact info
+- **hospital.patient** — name, age, gender, medical history, assigned doctor
+- **hospital.appointment** — links a patient + doctor, tracks date, severity, status
 
 ## 🛠 Tech
 - Odoo 19 (source install)
 - PostgreSQL
 
 ## 📸 Screenshots
+
+**Doctor List and Form View**
+![Doctor List View](screenshots/doctor_list.png)
+![Doctor form View](screenshots/doctor_form_view.png)
+
+**Patient Form with Linked Appointments and list view**
+![Patient Form](screenshots/patient_form.png)
+![Patient Form](screenshots/patient_list.png)
+
+**Appointment Form and List**
+![Appointment Form](screenshots/appointment_form.png)
+![Appointment Form](screenshots/appointment_list.png)
