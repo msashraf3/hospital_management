@@ -13,3 +13,4 @@ class HospitalPatient(models.Model):
 	medical_history=fields.Text(string="Previous Medical History")
 	phone=fields.Char(string="Phone number")
 	date_of_birth=fields.Date(string="Date Of Birth")
+	appointment_ids=fields.One2many('hospital.appointment', 'patient_id', string="Appointments")

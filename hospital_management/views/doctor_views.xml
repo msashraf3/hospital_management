@@ -10,6 +10,7 @@
                 <field name="specialization" />
                 <field name="phone" />
                 <field name="department" />
+                <field name="appointment_ids" />
             </list>
         </field>
     </record>

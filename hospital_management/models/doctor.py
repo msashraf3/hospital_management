@@ -12,3 +12,4 @@ class HospitalDoctor(models.Model):
     date_of_birth=fields.Date(string="Date of Birth")
     phone=fields.Char(string="Phone Number")
     email=fields.Char(string="E-mail Address")
+    appointment_ids=fields.One2many('hospital.appointment', 'doctor_id', string="Appointments")
