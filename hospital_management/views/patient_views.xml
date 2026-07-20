@@ -49,7 +49,7 @@
     <record id="hospital_patient_action" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hospital.patient</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,kanban,pivot,graph</field>
     </record>
 
     <!-- Menu item -->
