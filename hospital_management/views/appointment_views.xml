@@ -43,6 +43,70 @@
         </field>
     </record>
 
+    <!-- search view -->
+    <record id="hospital_appointment_search_view" model="ir.ui.view">
+        <field name="name">hospital.appointment.search</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+
+            <!-- search fields -->
+            <search string="Search Appointment">
+                <field name="patient_id" />
+                <field name="doctor_id" />
+                <field name="severity" />
+
+            <!-- filter feature -->
+            <filter
+            
+            string='Draft'
+            name='draft'
+            domain="[('status', '=', 'draft')]"
+
+            />
+
+            <filter
+            
+            string='Confirmed'
+            name='confirmed'
+            domain="[('status', '=', 'confirmed')]"
+
+            />
+
+            <filter
+            
+            string='Cancelled'
+            name='cancelled'
+            domain="[('status', '=', 'cancelled')]"
+
+            />
+
+            <!-- group by -->
+
+            <group>
+
+                <filter 
+                
+                string="Doctor"
+                name="group_doctor"
+                context="{'group_by':'doctor_id'}"
+
+                />
+
+                <filter 
+                
+                string="Severity"
+                name="group_severity"
+                context="{'group_by':'severity'}"
+
+                />
+
+            </group>
+
+            </search>
+
+        </field>
+    </record>
+
     <!-- action -->
     <record id="hospital_appointment_action" model="ir.actions.act_window">
         <field name="name">Appointment</field>

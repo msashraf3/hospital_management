@@ -15,7 +15,7 @@ Learning project: building a real Odoo module step-by-step while learning core O
 - [x] Views (list/form) for all models
 - [x] Security & access rights
 - [x] Menus
-- [ ] Business logic (status workflow buttons, computed fields, constraints)
+- [x] Business logic (status workflow buttons, computed fields, constraints)
 - [ ] Related fields
 - [ ] Appointment scheduling rules (doctor availability, slot limits)
 
@@ -42,5 +42,5 @@ Learning project: building a real Odoo module step-by-step while learning core O
 ![Appointment Form](screenshots/appointment_form.png)
 ![Appointment Confirmed Button](screenshots/appointment_confirmed_button.png)
 ![Appointment Done Button](screenshots/appointment_done_button.png)
-![Appointment Cancel Button](screenshots/appointment_cancel.png)
+![Appointment Cancel Button](screenshots/appointment_cancel_buttons.png)
 ![Appointment Form](screenshots/appointment_list.png)
