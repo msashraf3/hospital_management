@@ -14,6 +14,81 @@
         </field>
     </record>
 
+    <!-- search view -->
+    <record id="hospital_doctor_search_view" model="ir.ui.view">
+        <field name="name">hospital.doctor.search</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <search string='Search Doctors'>
+                <field name='name' />
+                <field name='age' />
+                <field name='gender' />
+                <field name='specialization' />
+
+                <!-- filter search -->
+
+                <filter
+                    string="Department"
+                    name='department'
+                    domain="[('department', '=','Psychology')]"
+                />
+
+                <!-- group by -->
+
+                <group>
+                    <filter
+                        string="Department"
+                        name="group_department"
+                        context="{'group_by':'department'}"
+                    />
+
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <!-- kanban view -->
+    <record id="hospital_doctor_kanban_view" model="ir.ui.view">
+        <field name="name">hospital.doctor.kanban</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name" />
+                <field name="email" />
+                <field name="phone" />
+                <field name="gender" />
+                <field name="specialization" />
+                <templates>
+                    <t t-name="card" class="rounded-4">
+                        <div class='oe-kanban-card rounded shadow-sm p-3'>
+                            
+                            <strong>
+                                <field name="name"/>
+                            </strong>
+
+                            <br/>
+
+                            E-Mail:
+                            <field name="email"/>
+                            <br />
+                            Phone:
+                            <field name="phone" />
+                            <br />
+                            Gender:
+                            <field name="gender" />
+                            <br />
+                            Specialization:
+                            <field name="specialization"/>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+
+        </field>
+    </record>
+
     <!-- form view -->
     <record id="hospital_doctor_form_view" model="ir.ui.view">
         <field name="name">hospital.doctor.form</field>

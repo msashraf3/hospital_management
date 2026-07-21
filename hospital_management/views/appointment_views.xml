@@ -43,6 +43,63 @@
         </field>
     </record>
 
+    <!-- kanban view-->
+
+    <record id="hospital_appointment_view_kanban" model="ir.ui.view">
+        <field name="name">hospital.appointment.kanban</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+
+            <kanban>
+
+                <field name="patient_id" />
+                <field name="doctor_id" />
+                <field name="appointment_date" />
+                <field name="severity" />
+                <field name="status" />
+
+                <templates>
+
+                    <t t-name='card' class='rounded-4'>
+
+                        <div class='oe-kanban-card rounded shadow-sm p-3'>
+
+                            <strong>
+                                <field name='patient_id' />
+                            </strong>
+
+                            <br/>
+
+                            <span class="text-warning">Doctor:</span>
+                            <field name='doctor_id'/>
+
+                            <br/>
+
+                            Severity:
+                            <field name='severity'/>
+
+                            <br />
+
+                            Date:
+                            <field name='appointment_date'/>
+
+                            <br />
+
+                            Status:
+                            <field name='status'/>
+
+                        </div>
+
+
+                    </t>
+
+                </templates>
+
+            </kanban>
+
+        </field>
+    </record>
+
     <!-- search view -->
     <record id="hospital_appointment_search_view" model="ir.ui.view">
         <field name="name">hospital.appointment.search</field>
@@ -55,52 +112,42 @@
                 <field name="doctor_id" />
                 <field name="severity" />
 
-            <!-- filter feature -->
-            <filter
-            
-            string='Draft'
-            name='draft'
-            domain="[('status', '=', 'draft')]"
-
-            />
-
-            <filter
-            
-            string='Confirmed'
-            name='confirmed'
-            domain="[('status', '=', 'confirmed')]"
-
-            />
-
-            <filter
-            
-            string='Cancelled'
-            name='cancelled'
-            domain="[('status', '=', 'cancelled')]"
-
-            />
-
-            <!-- group by -->
-
-            <group>
-
-                <filter 
-                
-                string="Doctor"
-                name="group_doctor"
-                context="{'group_by':'doctor_id'}"
-
+                <!-- filter feature -->
+                <filter
+                    string='Draft'
+                    name='draft'
+                    domain="[('status', '=', 'draft')]"
                 />
 
-                <filter 
-                
-                string="Severity"
-                name="group_severity"
-                context="{'group_by':'severity'}"
-
+                <filter
+                    string='Confirmed'
+                    name='confirmed'
+                    domain="[('status', '=', 'confirmed')]"
                 />
 
-            </group>
+                <filter
+                    string='Cancelled'
+                    name='cancelled'
+                    domain="[('status', '=', 'cancelled')]"
+                />
+
+                <!-- group by -->
+
+                <group>
+
+                    <filter
+                        string="Doctor"
+                        name="group_doctor"
+                        context="{'group_by':'doctor_id'}"
+                    />
+
+                    <filter
+                        string="Severity"
+                        name="group_severity"
+                        context="{'group_by':'severity'}"
+                    />
+
+                </group>
 
             </search>
 
