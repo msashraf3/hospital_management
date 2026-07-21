@@ -20,6 +20,10 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <form string="Appointment">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm The Appointment"
+                        class="btn-primary" invisible="status !='draft'" />
+                </header>
                 <sheet>
                     <group>
                         <field name="patient_id" />

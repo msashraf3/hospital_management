@@ -28,3 +28,5 @@ class HospitalAppointment(models.Model):
         string="Status",
         default="draft",
     )
+    def action_confirm(self):
+        self.status='confirmed'
