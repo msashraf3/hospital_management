@@ -30,6 +30,13 @@ Learning project: building a real Odoo module step-by-step while learning core O
 
 ## 📸 Screenshots
 
+**Kanban View**
+![Doctor List View](screenshots/kanban_view.png)
+
+**Search, Filter & Group By**
+![Doctor List View](screenshots/search_by_specific_fields.png)
+![Doctor List View](screenshots/group_by_search_feature.png)
+
 **Doctor List and Form View**
 ![Doctor List View](screenshots/doctors_list.png)
 ![Doctor form View](screenshots/doctor_form_view.png)
