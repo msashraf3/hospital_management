@@ -22,7 +22,11 @@
             <form string="Appointment">
                 <header>
                     <button name="action_confirm" type="object" string="Confirm The Appointment"
-                        class="btn-primary" invisible="status !='draft'" />
+                        class="btn-primary" invisible="status !='draft' or not id" />
+                    <button name="action_done" type="object" string="Mark it as DONE"
+                        class="btn-success" invisible="status !='confirmed' or not id" />
+                    <button name="action_cancel" type="object" string="Cancel The Appointment"
+                        class="btn-warning" invisible="status in ('cancelled','done') or not id" />
                 </header>
                 <sheet>
                     <group>

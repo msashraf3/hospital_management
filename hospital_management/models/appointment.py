@@ -28,5 +28,15 @@ class HospitalAppointment(models.Model):
         string="Status",
         default="draft",
     )
+
+    # confirmed button for the appointment
     def action_confirm(self):
         self.status='confirmed'
+    
+    # done button for the appointment after they are released
+    def action_done(self):
+        self.status='done'
+
+    # cancel button, whenever they want to cancel
+    def action_cancel(self):
+        self.status='cancelled'

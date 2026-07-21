@@ -40,4 +40,7 @@ Learning project: building a real Odoo module step-by-step while learning core O
 
 **Appointment Form and List**
 ![Appointment Form](screenshots/appointment_form.png)
+![Appointment Confirmed Button](screenshots/appointment_confirmed_button.png)
+![Appointment Done Button](screenshots/appointment_done_button.png)
+![Appointment Cancel Button](screenshots/appointment_cancel.png)
 ![Appointment Form](screenshots/appointment_list.png)
