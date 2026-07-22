@@ -1,13 +1,14 @@
 from odoo import fields, models, api
 from odoo.exceptions import ValidationError
 
+
 class HospitalAppointment(models.Model):
     _name = "hospital.appointment"
     _description = "Hospital Appointment"
 
     patient_id = fields.Many2one("hospital.patient", string="Patient", required=True)
     doctor_id = fields.Many2one("hospital.doctor", string="Doctor", required=True)
-    appointment_date = fields.Date(string="Appointment Date and Time")
+    appointment_date = fields.Datetime(string="Appointment Date and Time", required=True)
     reason = fields.Char(string="Possible reason of your illness, according to you.")
     severity = fields.Selection(
         [
@@ -59,19 +60,28 @@ class HospitalAppointment(models.Model):
             "res_id": self.patient_id.id,
         }
 
-
-    @api.constrains('doctor_id', 'appointment_date')
-
+    @api.constrains("doctor_id", "appointment_date")
     def _check_double_booking(self):
         for record in self:
             if record.doctor_id and record.appointment_date:
-                conflicting = self.search([
-                    ('id', '!=', record.id),
-                    ('doctor_id', '=', record.doctor_id.id),
-                    ('appointment_date','=',record.appointment_date),
-                    ('status', '!=', 'cancelled'),
-                ])
+                conflicting = self.search(
+                    [
+                        ("id", "!=", record.id),
+                        ("doctor_id", "=", record.doctor_id.id),
+                        ("appointment_date", "=", record.appointment_date),
+                        ("status", "!=", "cancelled"),
+                    ]
+                )
                 if conflicting:
                     raise ValidationError(
                         f"Dr. {record.doctor_id.name} already has an appointment at this exact Date/Time."
                     )
+
+    @api.constrains("appointment_date")
+    def _check_past_dates(self):
+        for record in self:
+            DateNow = fields.Datetime.now()
+            if record.appointment_date < fields.Datetime.now():
+                raise ValidationError(
+                    f"Appointment Date can't be in the past. Please select {DateNow} or in the future."
+                )

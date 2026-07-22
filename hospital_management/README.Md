@@ -17,6 +17,8 @@ Learning project: building a real Odoo module step-by-step while learning core O
 - [x] Menus
 - [x] Business logic (status workflow buttons: Confirm, Done, Cancel — with unsaved-record handling)
 - [x] Computed fields (appointment_count on Doctor)
+- [x] Constraints/validation (prevent doctor double-booking at same date/time)
+- [x] Constraints/validation (double-booking prevention, past-date prevention)
 - [ ] Related fields
 - [ ] Appointment scheduling rules (doctor availability, slot limits)
 
