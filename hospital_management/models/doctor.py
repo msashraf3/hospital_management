@@ -19,9 +19,20 @@ class HospitalDoctor(models.Model):
         "hospital.appointment", "doctor_id", string="Appointments"
     )
 
-    appointment_count=fields.Integer(string="Total Appointment" ,compute='_compute_appointment_count')
+    appointment_count = fields.Integer(
+        string="Total Appointment", compute="_compute_appointment_count"
+    )
 
-    @api.depends('appointment_ids')
+    @api.depends("appointment_ids")
     def _compute_appointment_count(self):
         for record in self:
-            record.appointment_count=len(record.appointment_ids)
+            record.appointment_count = len(record.appointment_ids)
+
+    def action_view_appointments(self):
+        return {
+            "name": "Appointments",
+            "type": "ir.actions.act_window",
+            "res_model": "hospital.appointment",
+            "view_mode": "list,form",
+            "domain": [("doctor_id", "=", self.id)],
+        }

@@ -63,27 +63,20 @@
                 <templates>
                     <t t-name="card" class="rounded-4">
                         <div class='oe-kanban-card rounded shadow-sm p-3'>
-                            
+
                             <strong>
-                                <field name="name"/>
+                                <field name="name" />
                             </strong>
 
-                            <br/>
-
-                            E-Mail:
-                            <field name="email"/>
                             <br />
-                            Phone:
-                            <field name="phone" />
+                            E-Mail: <field name="email" />
+                            <br /> Phone: <field name="phone" />
                             <br />
-                            Gender:
-                            <field name="gender" />
-                            <br />
-                            Specialization:
-                            <field name="specialization"/>
-                            <br />
-                            Total Appointments:
-                            <field name="appointment_count"/>
+                            Gender: <field name="gender" />
+                            <br /> Specialization: <field
+                                name="specialization" />
+                            <br /> Total Appointments: <field
+                                name="appointment_count" />
 
                         </div>
                     </t>
@@ -100,6 +93,13 @@
         <field name="arch" type="xml">
             <form string="Doctor">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_appointments" type="object" class="oe_stat_button"
+                            icon="fa-calendar">
+                            <field name="appointment_count" widget="statinfo" string="Appointments" />
+                        </button>
+                    </div>
+
                     <group>
                         <field name="name" />
                         <field name="age" />
