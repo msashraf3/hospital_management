@@ -10,6 +10,7 @@
                 <field name="specialization" />
                 <field name="phone" />
                 <field name="department" />
+                <field name="appointment_count" />
             </list>
         </field>
     </record>
@@ -80,6 +81,9 @@
                             <br />
                             Specialization:
                             <field name="specialization"/>
+                            <br />
+                            Total Appointments:
+                            <field name="appointment_count"/>
 
                         </div>
                     </t>

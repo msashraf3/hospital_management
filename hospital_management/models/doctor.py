@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class HospitalDoctor(models.Model):
@@ -18,3 +18,10 @@ class HospitalDoctor(models.Model):
     appointment_ids = fields.One2many(
         "hospital.appointment", "doctor_id", string="Appointments"
     )
+
+    appointment_count=fields.Integer(string="Total Appointment" ,compute='_compute_appointment_count')
+
+    @api.depends('appointment_ids')
+    def _compute_appointment_count(self):
+        for record in self:
+            record.appointment_count=len(record.appointment_ids)

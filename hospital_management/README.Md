@@ -15,7 +15,8 @@ Learning project: building a real Odoo module step-by-step while learning core O
 - [x] Views (list/form) for all models
 - [x] Security & access rights
 - [x] Menus
-- [x] Business logic (status workflow buttons, computed fields, constraints)
+- [x] Business logic (status workflow buttons: Confirm, Done, Cancel — with unsaved-record handling)
+- [x] Computed fields (appointment_count on Doctor)
 - [ ] Related fields
 - [ ] Appointment scheduling rules (doctor availability, slot limits)
 
@@ -29,6 +30,9 @@ Learning project: building a real Odoo module step-by-step while learning core O
 - PostgreSQL
 
 ## 📸 Screenshots
+
+**Doctor Appointment Count Using @api.depends**
+![Total Appointment count @api.depends](screenshots/appointment_count.png)
 
 **Kanban View**
 ![Doctor List View](screenshots/kanban_view.png)
