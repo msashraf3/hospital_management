@@ -18,3 +18,12 @@ class HospitalPatient(models.Model):
     appointment_ids = fields.One2many(
         "hospital.appointment", "patient_id", string="Appointments"
     )
+
+    def action_view_doctors(self):
+        return {
+            "name": "Assigned Doctors",
+            "type": "ir.actions.act_window",
+            "res_model": "hospital.doctor",
+            "view_mode": "form",
+            "res_id": self.doctor_id.id,
+        }

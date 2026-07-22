@@ -20,6 +20,7 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <form string="Appointment">
+
                 <header>
                     <button name="action_confirm" type="object" string="Confirm The Appointment"
                         class="btn-primary" invisible="status !='draft' or not id" />
@@ -28,7 +29,16 @@
                     <button name="action_cancel" type="object" string="Cancel The Appointment"
                         class="btn-warning" invisible="status in ('cancelled','done') or not id" />
                 </header>
+
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_doctors" type="object" class="oe_stat_button"
+                            icon="fa-user" string="Assigned Doctor" invisible="not doctor_id">
+                        </button>
+                        <button name="action_view_patients" type="object" class="oe_stat_button"
+                            icon="fa-user" string="Assigned Patients">
+                        </button>
+                    </div>
                     <group>
                         <field name="patient_id" />
                         <field name="doctor_id" />
@@ -68,25 +78,19 @@
                                 <field name='patient_id' />
                             </strong>
 
-                            <br/>
-
-                            <span class="text-warning">Doctor:</span>
-                            <field name='doctor_id'/>
-
-                            <br/>
-
-                            Severity:
-                            <field name='severity'/>
-
                             <br />
 
-                            Date:
-                            <field name='appointment_date'/>
+                            <span
+                                class="text-warning">Doctor:</span>
+                            <field name='doctor_id' />
 
                             <br />
+                            Severity: <field name='severity' />
 
-                            Status:
-                            <field name='status'/>
+                            <br /> Date: <field
+                                name='appointment_date' />
+
+                            <br /> Status: <field name='status' />
 
                         </div>
 

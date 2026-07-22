@@ -56,23 +56,17 @@
                     <t t-name="card" class="rounded-4">
                         <div class="oe-kanban-card rounded shadow-sm p-3">
                             <strong>
-                                <field name='name'/>
+                                <field name='name' />
                             </strong>
-                            <br/>
-                            Age:
-                            <fields name="age"/>
                             <br />
-                            Gender:
-                            <fields name="gender"/>
+                            Age: <fields name="age" />
+                            <br /> Gender: <fields name="gender" />
                             <br />
-                            Assigned Doctor:
-                            <fields name="doctor_id"/>
-                            <br />
-                            Phone:
-                            <fields name="phone"/>
-                            <br />
-                            Medical History:
-                            <fields name="medical_history"/>
+                            Assigned Doctor: <fields name="doctor_id" />
+                            <br /> Phone: <fields
+                                name="phone" />
+                            <br /> Medical History: <fields
+                                name="medical_history" />
                         </div>
                     </t>
                 </templates>
@@ -87,6 +81,11 @@
         <field name="arch" type="xml">
             <form string="Patient">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_doctors" type="object" class="oe_stat_button"
+                            icon="fa-user" string='Assigned Doctor' invisible="not doctor_id">
+                        </button>
+                    </div>
                     <group>
                         <field name="name" />
                         <field name="age" />

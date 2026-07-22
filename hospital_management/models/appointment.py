@@ -31,12 +31,30 @@ class HospitalAppointment(models.Model):
 
     # confirmed button for the appointment
     def action_confirm(self):
-        self.status='confirmed'
-    
+        self.status = "confirmed"
+
     # done button for the appointment after they are released
     def action_done(self):
-        self.status='done'
+        self.status = "done"
 
     # cancel button, whenever they want to cancel
     def action_cancel(self):
-        self.status='cancelled'
+        self.status = "cancelled"
+
+    def action_view_doctors(self):
+        return {
+            "name": "Assigned Doctor",
+            "type": "ir.actions.act_window",
+            "res_model": "hospital.doctor",
+            "view_mode": "form",
+            "res_id": self.doctor_id.id,
+        }
+
+    def action_view_patients(self):
+        return {
+            "name": "Assigned Patient",
+            "type": "ir.actions.act_window",
+            "res_model": "hospital.patient",
+            "view_mode": "form",
+            "res_id": self.patient_id.id,
+        }
