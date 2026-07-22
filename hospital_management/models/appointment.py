@@ -1,5 +1,5 @@
-from odoo import fields, models
-
+from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 
 class HospitalAppointment(models.Model):
     _name = "hospital.appointment"
@@ -58,3 +58,20 @@ class HospitalAppointment(models.Model):
             "view_mode": "form",
             "res_id": self.patient_id.id,
         }
+
+
+    @api.constrains('doctor_id', 'appointment_date')
+
+    def _check_double_booking(self):
+        for record in self:
+            if record.doctor_id and record.appointment_date:
+                conflicting = self.search([
+                    ('id', '!=', record.id),
+                    ('doctor_id', '=', record.doctor_id.id),
+                    ('appointment_date','=',record.appointment_date),
+                    ('status', '!=', 'cancelled'),
+                ])
+                if conflicting:
+                    raise ValidationError(
+                        f"Dr. {record.doctor_id.name} already has an appointment at this exact Date/Time."
+                    )

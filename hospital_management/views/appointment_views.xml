@@ -33,10 +33,10 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_view_doctors" type="object" class="oe_stat_button"
-                            icon="fa-user" string="Assigned Doctor" invisible="not doctor_id">
+                            icon="fa-user" string="Assigned Doctor" invisible="not id">
                         </button>
                         <button name="action_view_patients" type="object" class="oe_stat_button"
-                            icon="fa-user" string="Assigned Patients">
+                            icon="fa-user" string="Assigned Patients" invisible="not id">
                         </button>
                     </div>
                     <group>
