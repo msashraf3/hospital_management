@@ -109,6 +109,7 @@
                         <field name="department" />
                         <field name="phone" />
                         <field name="email" />
+                        <field name="user_id" />
                     </group>
                     <notebook>
                         <page string="Patient Appointments">

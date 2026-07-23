@@ -23,6 +23,8 @@ class HospitalDoctor(models.Model):
         string="Total Appointment", compute="_compute_appointment_count"
     )
 
+    user_id = fields.Many2one("res.users", string="Related User")
+
     @api.depends("appointment_ids")
     def _compute_appointment_count(self):
         for record in self:
