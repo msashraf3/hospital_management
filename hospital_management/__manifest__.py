@@ -10,6 +10,7 @@
     """,
     # data files always loaded at installation
     "data": [
+        "security/hospital_security.xml",
         "security/ir.model.access.csv",
         "views/doctor_views.xml",
         "views/patient_views.xml",
