@@ -1,0 +1,142 @@
+<odoo>
+
+    <!-- list view -->
+    <record id="hospital_doctor_list_view" model="ir.ui.view">
+        <field name="name">hospital.doctor.tree</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <list string="Doctor">
+                <field name="name" />
+                <field name="specialization" />
+                <field name="phone" />
+                <field name="department" />
+                <field name="appointment_count" />
+            </list>
+        </field>
+    </record>
+
+    <!-- search view -->
+    <record id="hospital_doctor_search_view" model="ir.ui.view">
+        <field name="name">hospital.doctor.search</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <search string='Search Doctors'>
+                <field name='name' />
+                <field name='age' />
+                <field name='gender' />
+                <field name='specialization' />
+
+                <!-- filter search -->
+
+                <filter
+                    string="Department"
+                    name='department'
+                    domain="[('department', '=','Psychology')]"
+                />
+
+                <!-- group by -->
+
+                <group>
+                    <filter
+                        string="Department"
+                        name="group_department"
+                        context="{'group_by':'department'}"
+                    />
+
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <!-- kanban view -->
+    <record id="hospital_doctor_kanban_view" model="ir.ui.view">
+        <field name="name">hospital.doctor.kanban</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name" />
+                <field name="email" />
+                <field name="phone" />
+                <field name="gender" />
+                <field name="specialization" />
+                <templates>
+                    <t t-name="card" class="rounded-4">
+                        <div class='oe-kanban-card rounded shadow-sm p-3'>
+
+                            <strong>
+                                <field name="name" />
+                            </strong>
+
+                            <br />
+                            E-Mail: <field name="email" />
+                            <br /> Phone: <field name="phone" />
+                            <br />
+                            Gender: <field name="gender" />
+                            <br /> Specialization: <field
+                                name="specialization" />
+                            <br /> Total Appointments: <field
+                                name="appointment_count" />
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+
+        </field>
+    </record>
+
+    <!-- form view -->
+    <record id="hospital_doctor_form_view" model="ir.ui.view">
+        <field name="name">hospital.doctor.form</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form string="Doctor">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_appointments" type="object" class="oe_stat_button"
+                            icon="fa-calendar">
+                            <field name="appointment_count" widget="statinfo" string="Appointments" />
+                        </button>
+                    </div>
+
+                    <group>
+                        <field name="name" />
+                        <field name="age" />
+                        <field name="gender" />
+                        <field name="date_of_birth" />
+                        <field name="specialization" />
+                        <field name="department" />
+                        <field name="phone" />
+                        <field name="email" />
+                        <field name="user_id" />
+                    </group>
+                    <notebook>
+                        <page string="Patient Appointments">
+                            <field name="appointment_ids">
+                                <list>
+                                    <field name="patient_id" />
+                                    <field name="appointment_date" />
+                                    <field name="status" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action -->
+    <record id="hospital_doctor_action" model="ir.actions.act_window">
+        <field name="name">Doctor</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="view_mode">list,form,kanban,pivot,graph</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_hospital_root" name="Hospital Management" />
+    <menuitem id="menu_hospital_doctor" name="Doctors" parent="menu_hospital_root"
+        action="hospital_doctor_action" sequence="10" />
+
+</odoo>
