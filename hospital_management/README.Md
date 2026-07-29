@@ -20,7 +20,7 @@ Learning project: building a real Odoo module step-by-step while learning core O
 - [x] Constraints/validation (prevent doctor double-booking at same date/time)
 - [x] Constraints/validation (double-booking prevention, past-date prevention)
 - [x] Access Rights per group (Doctor, Receptionist, Admin) with different read/write/create/delete permissions
-- [ ] Related fields
+- [x] Related fields
 - [ ] Appointment scheduling rules (doctor availability, slot limits)
 
 
@@ -38,6 +38,9 @@ Learning project: building a real Odoo module step-by-step while learning core O
 - PostgreSQL
 
 ## 📸 Screenshots
+
+**Permissions about which user can see what**
+![Now assigned doctor and admins can see their assigned patients](screenshots/related_user.png)
 
 **Doctor Appointment Count Using @api.depends**
 ![Total Appointment count @api.depends](screenshots/appointment_count.png)
