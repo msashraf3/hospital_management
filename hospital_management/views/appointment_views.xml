@@ -40,12 +40,18 @@
                         </button>
                     </div>
                     <group>
-                        <field name="patient_id" />
-                        <field name="doctor_id" />
-                        <field name="appointment_date" />
-                        <field name="reason" />
-                        <field name="severity" />
-                        <field name="is_contagious" />
+                        <field name="patient_id"
+                            readonly="is_doctor_user" />
+                        <field name="doctor_id"
+                            readonly="is_doctor_user" />
+                        <field name="appointment_date"
+                            readonly="is_doctor_user" />
+                        <field name="reason"
+                            readonly="is_doctor_user" />
+                        <field name="severity"
+                            readonly="is_doctor_user" />
+                        <field name="is_contagious"
+                            readonly="is_doctor_user" />
                         <field name="status" />
                     </group>
                 </sheet>
@@ -85,9 +91,11 @@
                             <field name='doctor_id' />
 
                             <br />
-                            Severity: <field name='severity' />
-
-                            <br /> Date: <field
+                            <span
+                                class="text-danger"> Severity: <field name='severity' />
+                            </span>
+                            <br />
+                            Date: <field
                                 name='appointment_date' />
 
                             <br /> Status: <field name='status' />

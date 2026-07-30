@@ -8,7 +8,9 @@ class HospitalAppointment(models.Model):
 
     patient_id = fields.Many2one("hospital.patient", string="Patient", required=True)
     doctor_id = fields.Many2one("hospital.doctor", string="Doctor", required=True)
-    appointment_date = fields.Datetime(string="Appointment Date and Time", required=True)
+    appointment_date = fields.Datetime(
+        string="Appointment Date and Time", required=True
+    )
     reason = fields.Char(string="Possible reason of your illness, according to you.")
     severity = fields.Selection(
         [
@@ -29,6 +31,14 @@ class HospitalAppointment(models.Model):
         string="Status",
         default="draft",
     )
+
+    is_doctor_user = fields.Boolean(compute="_compute_is_doctor_user")
+
+    def _compute_is_doctor_user(self):
+        for record in self:
+            record.is_doctor_user = self.env.user.has_group(
+                "hospital_management.group_hospital_doctor"
+            )
 
     # confirmed button for the appointment
     def action_confirm(self):
@@ -81,7 +91,7 @@ class HospitalAppointment(models.Model):
     def _check_past_dates(self):
         for record in self:
             DateNow = fields.Datetime.now()
-            if record.appointment_date < fields.Datetime.now():
+            if record.appointment_date < DateNow:
                 raise ValidationError(
                     f"Appointment Date can't be in the past. Please select {DateNow} or in the future."
                 )

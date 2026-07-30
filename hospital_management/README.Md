@@ -25,8 +25,8 @@ Learning project: building a real Odoo module step-by-step while learning core O
 
 
 ## ⚠️ Known Gaps / To Polish Later
-- [ ] Field-level restrictions on Appointment form (Doctors can edit patient/doctor/date directly, not just via buttons)
-- [ ] Record Rules (Doctors should only see their own patients/appointments, not everyone's)
+- [x] Field-level restrictions on Appointment form (Doctors can edit patient/doctor/date directly, not just via buttons)
+- [x] Record Rules (Doctors should only see their own patients/appointments, not everyone's)
 
 ## 🧩 Models
 - **hospital.doctor** — name, specialization, department, contact info
