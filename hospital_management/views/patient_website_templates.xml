@@ -1,0 +1,16 @@
+<odoo>
+    <template id="patient_list_template" name="Patient List">
+        <t t-call="website.layout">
+            <div class="container mt-4">
+                <h1>Our Proud Patients</h1>
+                <ul>
+                    <t t-foreach="patients" t-as="patient">
+                        <li>
+                            <strong t-out="patient.name"/> — <span t-out="patient.age"/>
+                        </li>
+                    </t>
+                </ul>
+            </div>
+        </t>
+    </template>
+</odoo>

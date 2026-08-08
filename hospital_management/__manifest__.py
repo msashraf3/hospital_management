@@ -17,6 +17,7 @@
         "views/patient_views.xml",
         "views/appointment_views.xml",
         "views/website_templates.xml",
+        "views/patient_website_templates.xml",
     ],
     "installable": True,
     "application": True,
