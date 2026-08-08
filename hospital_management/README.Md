@@ -21,11 +21,14 @@ Learning project: building a real Odoo module step-by-step while learning core O
 - [x] Constraints/validation (double-booking prevention, past-date prevention)
 - [x] Access Rights per group (Doctor, Receptionist, Admin) with different read/write/create/delete permissions
 - [x] Related fields
+- [x] Double-booking constraint upgraded with timedelta buffer (1-hour window instead of exact match)
 - [ ] Appointment scheduling rules (doctor availability, slot limits)
 
 
 ## ⚠️ Known Gaps / To Polish Later
 - [x] Field-level restrictions on Appointment form (Doctors can edit patient/doctor/date directly, not just via buttons)
+- [ ] Patient Record Rule — Doctors should only see Patients they've had an appointment.
+- [ ] Doctor Record Rule (patient-facing) — Patients should only see Doctors they've had/have an appointment with
 - [x] Record Rules (Doctors should only see their own patients/appointments, not everyone's)
 
 ## 🧩 Models

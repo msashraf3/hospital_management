@@ -1,5 +1,6 @@
 from odoo import fields, models, api
 from odoo.exceptions import ValidationError
+from datetime import timedelta
 
 
 class HospitalAppointment(models.Model):
@@ -74,11 +75,15 @@ class HospitalAppointment(models.Model):
     def _check_double_booking(self):
         for record in self:
             if record.doctor_id and record.appointment_date:
+                buffer = timedelta(minutes=30)
+                window_start = record.appointment_date - buffer
+                window_stop = record.appointment_date + buffer
                 conflicting = self.search(
                     [
                         ("id", "!=", record.id),
                         ("doctor_id", "=", record.doctor_id.id),
-                        ("appointment_date", "=", record.appointment_date),
+                        ("appointment_date", ">=", window_start),
+                        ("appointment_date", "<=", window_stop),
                         ("status", "!=", "cancelled"),
                     ]
                 )
