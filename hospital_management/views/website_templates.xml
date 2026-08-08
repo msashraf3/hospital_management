@@ -1,0 +1,16 @@
+<odoo>
+    <template id="doctor_list_template" name="Doctor List">
+        <t t-call="website.layout">
+            <div class="container mt-4">
+                <h1>Our Doctors</h1>
+                <ul>
+                    <t t-foreach="doctors" t-as="doctor">
+                        <li>
+                            <strong t-out="doctor.name"/> — <span t-out="doctor.specialization"/>
+                        </li>
+                    </t>
+                </ul>
+            </div>
+        </t>
+    </template>
+</odoo>
