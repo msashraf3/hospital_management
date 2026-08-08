@@ -1,0 +1,27 @@
+<odoo>
+    <template id="s_meet_our_doctors" name="Meet Our Doctors">
+        <section class="s_meet_our_doctors py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Meet Our Doctors</h2>
+                <div class="row">
+                    <t t-foreach="request.env['hospital.doctor'].sudo().search([])" t-as="doctor">
+                        <div class="col-md-4 mb-4 text-center">
+                            <h5 t-out="doctor.name" />
+                            <p t-out="doctor.specialization" />
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="hospital_doctor_snippet_registration" inherit_id="website.snippets"
+        name="Hospital Doctor Snippet">
+        <xpath expr="//snippets[@id='snippet_structure']/*[1]" position="before">
+            <t t-snippet="hospital_management.s_meet_our_doctors" string="Meet Our Doctors"
+                group="people">
+                <keywords>Doctors</keywords>
+            </t>
+        </xpath>
+    </template>
+</odoo>

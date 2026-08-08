@@ -24,6 +24,7 @@ Learning project: building a real Odoo module step-by-step while learning core O
 - [x] Double-booking constraint upgraded with timedelta buffer (1-hour window instead of exact match)
 - [x] Controllers — public webpage at /hospital/doctors listing doctors (no login required)
 - [x] Controllers — public /hospital/doctors page, login-gated /hospital/patients page
+- [x] Theme Development — custom 'Meet Our Doctors' snippet, drag-and-drop, live data from hospital.doctor
 - [ ] Appointment scheduling rules (doctor availability, slot limits)
 
 
